@@ -15,5 +15,9 @@
 
 ```
 sudo apt-get install python3 python3-pyqt5
-
+mkdir apps
+cd apps/
+https://github.com/saan800/PiPad
+cd PiPad/src/
+python3 main.py
 ```
