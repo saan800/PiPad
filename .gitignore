@@ -63,9 +63,6 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
-docs/_build/
-
 # PyBuilder
 target/
 
@@ -80,6 +77,9 @@ celerybeat-schedule
 
 # SageMath parsed files
 *.sage.py
+
+# QML parsed files
+*.qmlc
 
 # Environments
 .env
