@@ -1,91 +1,104 @@
 import QtQuick 2.9
-import QtQuick.Controls 2.4
-import QtQuick.Controls.Styles 1.4
-import QtQuick.Layouts 1.2
+import QtQuick.Window 2.2
+import QtQuick.Controls 2.3
+import Qt.labs.calendar 1.0
+import QtQuick.Extras 1.4
+import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 
-ApplicationWindow {
+Window {
     id: window
     visible: true
-    width:800 
-    height:480
-    title: qsTr("PiPad")
-    background: Rectangle {
-        color: "#000000"
-    }
+    width: 800
+    height: 480
+    color: "#000000"
+    title: qsTr("\u03C0 Pad")
 
-    header: ToolBar {
-        contentHeight: toolButton.implicitHeight
+    TabBar {
+        id: navigationBar
+        width: parent.width
+        anchors.bottom: parent.bottom
+        height: 40
+        
+        background: Rectangle {
+            color: window.color
+        }
 
-        ToolButton {
-            id: toolButton
-            text: "\u2630"
-            font.pixelSize: Qt.application.font.pixelSize * 1.6
-            onClicked: {
-                drawer.open()
+        TabButton {
+            id: btnHome
+            text: qsTr("\u2302")
+            font.family: "Sans-serif"
+            font.pixelSize:24
+            height: navigationBar.height
+            width: navigationBar.height
+            background: Rectangle {
+                color: navigationBar.currentIndex == 0 ? "#666666" : window.color
             }
         }
-
-        Label {
-            text: stackView.currentItem.title
-            anchors.centerIn: parent
+        TabButton {
+            id: btnManageAlarms
+            text: qsTr("\u231A")
+            font.family: "Sans-serif"
+            font.pixelSize:20
+            height: navigationBar.height
+            width: navigationBar.height
+            background: Rectangle {
+                color: navigationBar.currentIndex == 1 ? "#666666" : window.color
+            }
         }
     }
-    // footer: TabBar {
-    //     id: menu
-    //     width: parent.width
-    //     TabButton {
-    //         text: qsTr("\u2302")
-    //         width: implicitWidth
-    //     }
-    //     TabButton {
-    //         text: qsTr("\u2302")
-    //         font.family: "Sans-serif"
-    //         font.pixelSize:36
-    //         width: implicitWidth
-    //     }
-    //     TabButton {
-    //         text: qsTr("Activity")
-    //         width: implicitWidth
-    //     }
-    // }
 
-    Drawer {
-        id: drawer
-        visible: false
-        width: 60
-        height: window.height
+    StackLayout {
+        id: stackLayout
+        width: parent.width
+        height: parent.height - navigationBar.height
+        anchors.top: parent.top
+        currentIndex: navigationBar.currentIndex
+        Item {
+            id: homeTab
 
-        Column {
-            anchors.fill: parent
-
-            ItemDelegate {
-                text: qsTr("\u2302")
+            Text {
+                id:clock
+                text:'12:38pm'
                 font.family: "Sans-serif"
-                font.pixelSize:36
-                width: parent.width
-                onClicked: {
-                    stackView.pop()
-                    stackView.push("HomeForm.ui.qml")
-                    drawer.close()
-                }
+                font.pixelSize:98
+                horizontalAlignment: Text.AlignRight
+                color:Qt.rgba(1, 1, 1, 1)
+                x:20 ; y:20
+                width:450
+                height:120
             }
-            ItemDelegate {
-                text: qsTr("\u231A")
+            Text {
+                id:timezone
+                text:'United Kingdom'
                 font.family: "Sans-serif"
-                font.pixelSize:36
-                width: parent.width
-                onClicked: {
-                    stackView.pop()
-                    stackView.push("ManageAlarms.ui.qml")
-                    drawer.close()
-                }
+                font.pixelSize:14
+                horizontalAlignment: Text.AlignRight
+                color:Qt.rgba(1, 1, 1, 1)
+                x:283 ; y:140
+                width:180
+                height:25
             }
         }
-    }
+        Item {
+            id: discoverTab
 
-    StackView {
-        id: stackView
-        initialItem: "HomeForm.ui.qml"
-        anchors.fill: parent
+            Text {
+                id:text2
+                text:'Manage Alarms'
+                font.family: "Sans-serif"
+                font.pixelSize:14
+                horizontalAlignment: Text.AlignRight
+                color:Qt.rgba(1, 1, 1, 1)
+                x:283 ; y:140
+                width:180
+                height:25
+            }
+        }
     }
 }
+
+/*##^## Designer {
+    D{i:27;invisible:true}
+}
+ ##^##*/
