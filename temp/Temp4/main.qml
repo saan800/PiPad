@@ -15,7 +15,7 @@ Window {
         id: loader
         width: parent.width
         height: parent.height - navBar.height
-        source: "pages/home.qml"
+        source: "home.qml"
         asynchronous: true
         anchors.top: parent.top
         anchors.bottom: navBar.top
@@ -43,7 +43,7 @@ Window {
                 color: navBar.currentIndex == 0 ? "#666666" : window.color
             }
             onClicked: {
-                loader.source = "pages/home.qml"
+                loader.source = "home.qml"
             }
 
         }
@@ -60,7 +60,7 @@ Window {
                 color: navBar.currentIndex == 1 ? "#666666" : window.color
             }
             onClicked: {
-                loader.source = "pages/alarms.qml"
+                loader.source = "page2.qml"
             }
         }
     }

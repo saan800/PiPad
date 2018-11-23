@@ -18,10 +18,8 @@
 sudo apt-get install python3
 sudo apt-get install python3-pyqt5
 sudo apt-get install python3-pyqt5.qtquick
-qtdeclarative5-dev
-qml-module-qtquick*
-sudo apt-get install qml-module-qtquick2
-//sudo apt-get install python3 python3-pyqt5
+sudo apt-get install qtdeclarative5-dev
+sudo apt-get install qml-module-qtquick*
 mkdir apps
 cd apps/
 git clone https://github.com/saan800/PiPad
