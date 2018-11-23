@@ -1,10 +1,7 @@
-import QtQuick 2.9
+import QtQuick 2.2
+import QtQuick.Controls 2.0
 import QtQuick.Window 2.2
-import QtQuick.Controls 2.3
-import Qt.labs.calendar 1.0
-import QtQuick.Extras 1.4
 import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
 
 Window {
     id: window
@@ -19,7 +16,7 @@ Window {
         width: parent.width
         anchors.bottom: parent.bottom
         height: 40
-        
+
         background: Rectangle {
             color: window.color
         }
@@ -97,8 +94,3 @@ Window {
         }
     }
 }
-
-/*##^## Designer {
-    D{i:27;invisible:true}
-}
- ##^##*/
