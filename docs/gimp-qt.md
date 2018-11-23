@@ -18,11 +18,13 @@
 sudo apt-get install python3
 sudo apt-get install python3-pyqt5
 sudo apt-get install python3-pyqt5.qtquick
-sudo apt-get install qtdeclarative5-qtquick2-plugin
+qtdeclarative5-dev
+qml-module-qtquick*
+sudo apt-get install qml-module-qtquick2
 //sudo apt-get install python3 python3-pyqt5
 mkdir apps
 cd apps/
-https://github.com/saan800/PiPad
+git clone https://github.com/saan800/PiPad
 cd PiPad/src/
 python3 main.py
 ```

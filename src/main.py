@@ -1,4 +1,6 @@
-# thing you load
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 import sys
 import PyQt5
 from PyQt5.QtGui import QGuiApplication
